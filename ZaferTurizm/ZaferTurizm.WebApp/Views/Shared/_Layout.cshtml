@@ -1,0 +1,168 @@
+﻿
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Zafer Turizm Bilet Sayfası</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="~/AdminTemplate/sidebar/style5.css">
+
+    
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ZaferTurizm.WebApp.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <h3>Zafer Turizm</h3>
+                </div>
+
+                <ul class="list-unstyled components">
+                    <p>Mustafa Korkmaz</p>
+                    <li>
+                        <a asp-controller="Default" asp-action="Index">Ana Sayfa</a>
+                    </li>
+                    <li>
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Marka</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a asp-controller="VehicleMake" asp-action="Index">Markaları Göster</a>
+                            </li>
+                            <li>
+                                <a asp-controller="VehicleMake" asp-action="Create">Marka Ekle</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#menuSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Model</a>
+                        <ul class="collapse list-unstyled" id="menuSubmenu">
+                            <li>
+                                <a href="/VehicleModel/Index">Modelleri Göster</a>
+                            </li>
+                            <li>
+                                <a href="/VehicleModel/Create">Model Ekle</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                <li>
+                    <a href="#vehicleDefMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Araç Tanımlama</a>
+                    <ul class="collapse list-unstyled" id="vehicleDefMenu">
+                        <li>
+                            <a href="/VehicleDefinition/Index">Tanımlamalar</a>
+                        </li>
+                        <li>
+                            <a href="/VehicleDefinition/Create">Yeni Ekle</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="#vehicleMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Araçlar</a>
+                    <ul class="collapse list-unstyled" id="vehicleMenu">
+                        <li>
+                            <a href="/Vehicle/Index">Tüm Araçları Görüntüle</a>
+                        </li>
+                        <li>
+                            <a href="/Vehicle/Create">Yeni Ekle</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a asp-controller="City" asp-action="Index">Şehirler</a>
+                </li>
+                <li>
+                    <a href="#routeMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Rota İşlemleri</a>
+                    <ul class="collapse list-unstyled" id="routeMenu">
+                        <li>
+                            <a href="/Route/Index">Rotaları Görüntüle </a>
+                        </li>
+                        <li>
+                            <a href="/Route/Create">Rota Ekle</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="#busTripMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Sefer İşlemleri</a>
+                    <ul class="collapse list-unstyled" id="busTripMenu">
+                        <li>
+                            <a href="/BusTrip/Index">Seferleri Görüntüle </a>
+                        </li>
+                        <li>
+                            <a href="/BusTrip/Create">Sefer Ekle</a>
+                        </li>
+
+                    </ul>
+                </li>
+                </ul>
+
+               
+            </nav>
+        
+        <!-- Page Content Holder -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid ">
+
+                    <h1 class="text-danger">ZAFER TURİZM</h1>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <a class="btn btn-danger text-end" asp-controller="Home" asp-action="Index">Bilet Al</a>
+                    
+                </div>
+            </nav>
+            
+            @RenderBody()
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    @*<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>*@
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+
+   
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>
